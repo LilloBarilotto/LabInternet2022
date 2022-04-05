@@ -9,8 +9,11 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import sys
+import os
 
 # In[10]:
+if not os.path.exists("images"):
+    os.mkdir("images")
 
 #IMPORT DEI DATI
 if len(sys.argv) < 6:
@@ -92,6 +95,7 @@ fig.update_layout(
     title={'text': TitoloRtt, 'x':0.5, 'xanchor': 'center','yanchor': 'top'}
 )
 fig.show()
+fig.write_image("images/"+TitoloRtt+".pdf")
 # In[14]:
 
 #Definizioni per la capacità
@@ -144,3 +148,4 @@ fig2.update_layout(
     title={'text': TitoloCap, 'x':0.5, 'xanchor': 'center','yanchor': 'top'}
 )
 fig2.show()
+fig2.write_image("images/"+TitoloCap+".pdf")
