@@ -4,9 +4,9 @@ Because mannagg a  Tp_link the ethernet adapter that I paid 10 euros is very nic
 I therefore decided to use both formulas (Rtt with or without a Store&Forward device) here too to see which graphs come out. I have not tested yet but I think the behavior is very similar to that of the Switch, let's see together!
 
 
-#Cosa posso capire da alcuni di questi risultati
+# Cosa posso capire da alcuni di questi risultati
 
-##TEST SU 10M_Dongle_1.txt
+## TEST SU 10M_Dongle_1.txt
 Ping con -c 10, -i 0.2
 
 Mmmh possiamo ipotizzare alcune cose da questi strani risultati, in sequenza potremmmo dire che:
@@ -22,6 +22,6 @@ La cosa più strana è l'effetto onda triangolare se confrontato con i risultati
 I casi fatti con il dongle sono stati fatti attraverso il laptop con Pop!_OS 21.10 sprovvisto di porta Ethernet "nativa", con IP 172.16.1.1 da cui veniva effettuato il ping verso 172.16.1.2, host su un portatile con la distro avviata da chiavetta fornita nel corso con porta Ethernet nativa
 
 
-##TEST SU 100M_Dongle.txt
+## TEST SU 100M_Dongle.txt
 Oltre a ciò che è stato già detto sul caso del 10M_Dir_Dongle, qui si può vedere in modo più accentuato un disturbo che definisce una errorbar di circa 0.3ms sull'asse y nei risultati.
 
