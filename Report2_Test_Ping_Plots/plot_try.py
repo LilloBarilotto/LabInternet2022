@@ -8,15 +8,19 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import plotly.express as px
-from sys import argv
+import sys
 
 # In[10]:
 
 #IMPORT DEI DATI
+if len(sys.argv) < 6:
+     sys.exit("Wrong Usage, use : python plot_try.py [Path] [Capacity] [IsDirect] [TitoloRtt] [TitotoCapacita]")
 
-path = argv[1]
-Cap = int(argv[2])
-IsDirect = int(argv[3])
+path = sys.argv[1]
+Cap = int(sys.argv[2])
+IsDirect = int(sys.argv[3])
+TitoloRtt= sys.argv[4]
+TitoloCap= sys.argv[5]
 
 data= pd.read_csv(path,delimiter=' ')
 data
@@ -40,16 +44,12 @@ def getPadding(x):
     return 0
 
 def getRttTheory(d, C):
-    res= 2*d*8*(10**3)/(C)
-    return res
+    return 2*d*8*(10**3)/(C)
 
 def getRttTheory_Switch(d, C):
     if(d<=1538):
-        result = 2*getRttTheory(d,C)
-    else:
-        result = getRttTheory(d,C) + getRttTheory(1538,C) 
-    
-    return result
+        return 2*getRttTheory(d,C)
+    return getRttTheory(d,C) + getRttTheory(1538,C) 
     
 getLenght  = np.vectorize(getLenght)
 getPadding = np.vectorize(getPadding)
@@ -73,10 +73,9 @@ else :
 # In[13]:
 
 #Stampa RTT
-fig = px.line(x=lenght,
-            y= [RttMin, RttAvg, RttMax, RttTheory],
+fig = px.line(x=lenght, y= [RttMin, RttAvg, RttMax, RttTheory],
             markers=True ,labels=dict(x="Data [bytes]", value="RTT [ms]", variable="Tipologia di RTT"),
-            width=1200, height= 900)
+            width=800, height= 600)
 
 if(IsDirect==1):
     newnamesFig = {'wide_variable_0':'RttMin', 'wide_variable_1':'RttAvg', 'wide_variable_2':'RttMax', 'wide_variable_3': 'RttTheory'}
@@ -88,13 +87,10 @@ fig.for_each_trace(lambda t: t.update(name = newnamesFig[t.name],
                                       hovertemplate = t.hovertemplate.replace(t.name, newnamesFig[t.name])
                                      )
                   )
-fig.update_layout(legend=dict(
-    yanchor="top",
-    y=0.99,
-    xanchor="left",
-    x=0.01
-))
-
+fig.update_layout(
+    legend=dict( yanchor="top", y=0.90, xanchor="left",x=0.01),
+    title={'text': TitoloRtt, 'x':0.5, 'xanchor': 'center','yanchor': 'top'}
+)
 fig.show()
 # In[14]:
 
@@ -106,7 +102,7 @@ def getCapacity_sec(d, rtt):
 # 2.4 nel caso di 10Mbit/s, altrimenti 0.24 per 100Mbit/s
 if(Cap== (10*10**6)):
     RttMTUfisso= 2.4
-else:
+else: #do per scontato sia 100*10**6, quindi 100Mbit/s
     RttMTUfisso= 0.24
 
 def getCapacity_sec_TheorySwitch(d, rtt):
@@ -126,12 +122,11 @@ else :
     SpeedTheory = getCapacity_sec_TheorySwitch(lenght, RttTheory)
 # In[16]:
 
-
 #STAMPA CAPACITA'
 
-fig2 = px.line(x=lenght,
-            y= [Speed, SpeedTheory],
-            labels=dict(x="Data [bytes]", value="Capacity [Mbit/s]", variable="Types of Capacity"))
+fig2 = px.line(x=lenght,y= [Speed, SpeedTheory],
+            labels=dict(x="Data [bytes]", value="Capacity [Mbit/s]", variable="Types of Capacity"),
+            width=800, height= 600)
 
 if(IsDirect==1):
     newnamesFig2 = {'wide_variable_0':'Capacity(RTTmin)', 'wide_variable_1':'Capacity(RttTheory)'}
@@ -144,11 +139,8 @@ fig2.for_each_trace(lambda t: t.update(name = newnamesFig2[t.name],
                                      )
                   )
 
-fig2.update_layout(legend=dict(
-    yanchor="top",
-    y=0.90,
-    xanchor="left",
-    x=0.01
-))
-
+fig2.update_layout(
+    legend=dict( yanchor="top", y=0.90, xanchor="left",x=0.01),
+    title={'text': TitoloCap, 'x':0.5, 'xanchor': 'center','yanchor': 'top'}
+)
 fig2.show()
