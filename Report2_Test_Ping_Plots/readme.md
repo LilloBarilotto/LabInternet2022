@@ -1,4 +1,4 @@
-#COSA TROVI QUI
+# COSA TROVI QUI
 
 La seconda relazione da consegnare riguarda test sulle capacità, tempi di trasmissione, propagazione, RTT, insomma tanta roba carina.
 Trovi un po' di dati qui, insieme allo script che ha permesso di generare quei dati.
