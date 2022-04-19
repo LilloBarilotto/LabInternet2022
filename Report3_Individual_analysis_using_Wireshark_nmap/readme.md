@@ -1,5 +1,10 @@
 # NON HO UN TITOLO
 
+
+## COSA TROVI QUI
+Allora, purtroppo la rete del collegio mi sa che blocca un bel po' di roba, ho trovato (grazie fb marketplace) in regalo un piccolo router netgear di dubbia qualità, ma gratis non ci lamentiamo. Quindi al momento sto facendo i test con questo. Spero di non dover caricare una relazione con questi test, vediamo!
+
+
 ## NOTA DEL PROF PRIMA DI CONSEGNARE LEGGI
 
 Report individuale - precisazioni
@@ -16,8 +21,6 @@ Ricordo la scadenza del 24/4 per caricare il report individuale, ovvero
 
 M
 
-
-
 Ho caricato nel material didattico /Individual report description/LabInt - individual report using nmap.pdf la traccia relativa al report individuale e le relative istruzioni per la preparazione ed upload dello stesso.
 
 Come discusso a lezione, si tratta di esaminare le tracce dei pacchetti generati e scambiati durante uno scan, scegliendo almeno due host appartenenti alla vostra rete local come obiettivi.
@@ -26,5 +29,3 @@ nmap e Wiresharl sono disponibili per qualunque sistema operativo, per cui è po
 La consegna del report individuale è prevista per le ore 23:59 del 24/4/2022.
 
 Buon lavoro e buona Pasqua.
-
-
