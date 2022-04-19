@@ -1,0 +1,11 @@
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-04-19 22:44 CEST
+Nmap scan report for _gateway (192.168.0.1)
+Host is up (0.00096s latency).
+
+PORT    STATE  SERVICE
+7/tcp   closed echo
+22/tcp  closed ssh
+445/tcp closed microsoft-ds
+MAC Address: 00:22:3F:3B:8A:A8 (Netgear)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.19 seconds
