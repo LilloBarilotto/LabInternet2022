@@ -1,0 +1,13 @@
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-04-20 00:44 CEST
+Nmap scan report for 192.168.0.1
+Host is up (0.0075s latency).
+Not shown: 147 closed ports
+PORT   STATE SERVICE
+23/tcp open  telnet
+53/tcp open  domain
+80/tcp open  http
+MAC Address: 00:22:3F:3B:8A:A8 (Netgear)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.24 seconds
+
+sudo nmap 192.168.0.1 -p 1-150
