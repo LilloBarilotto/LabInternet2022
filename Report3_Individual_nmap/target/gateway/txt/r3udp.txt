@@ -1,0 +1,10 @@
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-04-20 15:32 CEST
+Nmap scan report for _gateway (172.18.143.254)
+Host is up (0.0035s latency).
+Not shown: 148 closed ports
+PORT    STATE         SERVICE
+67/udp  open|filtered dhcps
+123/udp open          ntp
+MAC Address: 50:3D:E5:15:89:3F (Cisco Systems)
+
+Nmap done: 1 IP address (1 host up) scanned in 127.53 seconds

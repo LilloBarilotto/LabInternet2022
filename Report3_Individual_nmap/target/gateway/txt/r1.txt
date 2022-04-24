@@ -1,0 +1,10 @@
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-04-20 13:48 CEST
+Nmap scan report for _gateway (172.18.143.254)
+Host is up (0.0031s latency).
+
+PORT    STATE  SERVICE
+7/tcp   closed echo
+22/tcp  open   ssh
+445/tcp closed microsoft-ds
+
+Nmap done: 1 IP address (1 host up) scanned in 0.04 seconds

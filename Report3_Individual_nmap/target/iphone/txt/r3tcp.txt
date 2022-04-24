@@ -1,0 +1,7 @@
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-04-24 17:15 CEST
+Nmap scan report for 172.18.136.12
+Host is up (0.053s latency).
+All 150 scanned ports on 172.18.136.12 are closed
+MAC Address: 62:80:1D:4A:2C:BD (Unknown)
+
+Nmap done: 1 IP address (1 host up) scanned in 2.61 seconds
