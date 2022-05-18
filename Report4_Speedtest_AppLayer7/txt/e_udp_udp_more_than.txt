@@ -1,0 +1,30 @@
+eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::a21d:48ff:fedc:b069  prefixlen 64  scopeid 0x20<link>
+        ether a0:1d:48:dc:b0:69  txqueuelen 1000  (Ethernet)
+        RX packets 513646  bytes 627619862 (627.6 MB)
+        RX errors 0  dropped 2  overruns 0  frame 0
+        TX packets 474489  bytes 392884703 (392.8 MB)
+        TX errors 1  dropped 0 overruns 0  carrier 0  collisions 1999
+
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l 10772096   18.66    0.72      4.6170    119.3429    7319    392.13   10135.8
+1 29440000   16.33    0.15     14.4198   1527.6544   20003   1224.69  129745.5
+
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l 14247488   20.91    1.02      5.4505    111.7611    9680    462.90    9491.6
+1 29440000   20.48    0.25     11.4995    929.2893   20003    976.66   78925.7
+eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::a21d:48ff:fedc:b069  prefixlen 64  scopeid 0x20<link>
+        ether a0:1d:48:dc:b0:69  txqueuelen 1000  (Ethernet)
+        RX packets 530669  bytes 653355142 (653.3 MB)
+        RX errors 0  dropped 2  overruns 0  frame 0
+        TX packets 474513  bytes 392886251 (392.8 MB)
+        TX errors 1  dropped 0 overruns 0  carrier 0  collisions 1999
+
+non ci sono state collisioni come atteso e ci sono state perdite a livello applicazione
+la somma delle due velocità è maggionre del massimo atteso perchè il primo ha finito 
+prima essendosi preso più banda e successivamente una volta finito il primo, il secodno 
+avendo a disposizione tutta la banda sale a 10 avendo una media superiore a quella attesa
+

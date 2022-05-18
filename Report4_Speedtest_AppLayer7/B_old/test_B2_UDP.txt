@@ -1,0 +1,24 @@
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::ce32:e5ff:fe0a:8df7  prefixlen 64  scopeid 0x20<link>
+        ether cc:32:e5:0a:8d:f7  txqueuelen 1000  (Ethernet)
+        RX packets 101181  bytes 5262572 (5.2 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 250007  bytes 370120137 (370.1 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+nttcp -T -u -n 10000 -l 1472 172.16.1.1 >> test_B2_UDP.txt
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l 14720000    9.43    0.13     12.4831    911.0673   10003   1060.36   77389.7
+1 11380032    9.55    0.90      9.5290    101.6347    7732    809.29    8631.8
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::ce32:e5ff:fe0a:8df7  prefixlen 64  scopeid 0x20<link>
+        ether cc:32:e5:0a:8d:f7  txqueuelen 1000  (Ethernet)
+        RX packets 101192  bytes 5263244 (5.2 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 257751  bytes 381825694 (381.8 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+#COMMENTO
+C'è una perdita di circa 2250 pacchetti su 10K.

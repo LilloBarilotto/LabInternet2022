@@ -1,0 +1,46 @@
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::ce32:e5ff:fe0a:8df7  prefixlen 64  scopeid 0x20<link>
+        ether cc:32:e5:0a:8d:f7  txqueuelen 1000  (Ethernet)
+        RX packets 50528  bytes 2628548 (2.6 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 149162  bytes 222573650 (222.5 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::ce32:e5ff:fe0a:8df7  prefixlen 64  scopeid 0x20<link>
+        ether cc:32:e5:0a:8d:f7  txqueuelen 1000  (Ethernet)
+        RX packets 50528  bytes 2628548 (2.6 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 149162  bytes 222573650 (222.5 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+Settings for eth0:
+	Supported ports: [ TP	 MII ]
+	Supported link modes:   10baseT/Half 10baseT/Full
+	                        100baseT/Half 100baseT/Full
+	                        1000baseT/Half 1000baseT/Full
+	Supported pause frame use: No
+	Supports auto-negotiation: Yes
+	Supported FEC modes: Not reported
+	Advertised link modes:  10baseT/Half
+	Advertised pause frame use: No
+	Advertised auto-negotiation: Yes
+	Advertised FEC modes: Not reported
+	Link partner advertised link modes:  10baseT/Half 10baseT/Full
+	                                     100baseT/Half 100baseT/Full
+	Link partner advertised pause frame use: Symmetric
+	Link partner advertised auto-negotiation: Yes
+	Link partner advertised FEC modes: Not reported
+	Speed: 10Mb/s
+	Duplex: Half
+	Auto-negotiation: on
+	Port: MII
+	PHYAD: 32
+	Transceiver: internal
+	Supports Wake-on: pumbg
+	Wake-on: g
+        Current message level: 0x00007fff (32767)
+                               drv probe link timer ifdown ifup rx_err tx_err tx_queued intr tx_done rx_status pktdata hw wol
+	Link detected: yes

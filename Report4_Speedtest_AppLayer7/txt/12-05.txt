@@ -1,0 +1,5 @@
+nttcp -T -r -u -n 10000 -l 1472 H1 & nttcp -T -r -n 10000 -l 1472 H2   >> f_udp_udp_half_2
+
+
+#RISULTATI ATTESI
+si dividono la banda equamente, a 7 secondi si nota sempre un casino boia

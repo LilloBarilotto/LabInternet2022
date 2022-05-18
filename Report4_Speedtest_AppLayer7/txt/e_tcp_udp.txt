@@ -1,0 +1,50 @@
+eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::a21d:48ff:fedc:b069  prefixlen 64  scopeid 0x20<link>
+        ether a0:1d:48:dc:b0:69  txqueuelen 1000  (Ethernet)
+        RX packets 530674  bytes 653355536 (653.3 MB)
+        RX errors 0  dropped 2  overruns 0  frame 0
+        TX packets 474516  bytes 392886698 (392.8 MB)
+        TX errors 1  dropped 0 overruns 0  carrier 0  collisions 1999
+
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l 11187200    9.85    0.91      9.0815     98.6359    7601    771.29    8377.1
+1 14720000    9.46    0.08     12.4487   1515.8654   10003   1057.44  128763.6
+
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l 14480000   21.65    1.17      5.3501     98.6012   10001    461.90    8512.7
+1 14480000   21.43    0.05      5.4048   2132.4301   10000    466.57  184084.1
+eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::a21d:48ff:fedc:b069  prefixlen 64  scopeid 0x20<link>
+        ether a0:1d:48:dc:b0:69  txqueuelen 1000  (Ethernet)
+        RX packets 548299  bytes 680003714 (680.0 MB)
+        RX errors 0  dropped 2  overruns 0  frame 0
+        TX packets 479632  bytes 393227079 (393.2 MB)
+        TX errors 1  dropped 0 overruns 0  carrier 0  collisions 1999
+
+E' coerente con quanto atteso, prima parla UDP e poi parla TCP
+
+#RISULTATI DA INSERIRE
+Goodput_H1_udp	= 9.0815 Mbps
+Goodput_H2_tcp  = 5.3501 Mbps
+Goodput_Tot     = 14.4316 Mbps
+BytesLost_udp	= 14720000 - 11187200	= 0
+BytesLost_tcp   = 0
+Collisions	= 0 (Come previsto obv)
+eff_prev 	= ???????????????????????????
+Mbps_Hi_prev    = ???????????????????????????
+Mbps_prev	= ???????????????????????????
+err%		= ???????????????????????????
+
+#COMMENTO LILLO
+La somma dei Goodput supera il goodput previsto, di molto in questo caso.
+La differenza sta nel fatto che UDP non offre nessun controllo di congestione, al contrario di TCP.
+Ciò vuol dire che, al momento delle aperture delle due connessioni UDP e TCP, che possiamo ipotizzare in contemporanea, ci sarà TCP che noterà l'altra connessione nella rete,
+e ridurra la dimensione della sua finestra per adattarsi. Nel caso di 2 connessioni TCP, ci sarebbe un adattamento praticamente equo, come visto nel caso "e_tcp_tcp", al contrario qui
+la connessione UDP continuerà a inoltrare con la stessa frequenza pacchetti nella rete, e avrà sempre più banda disponibile perchè la connessione TCP si adatterà fino a saturare verso i 0Mbps.
+Sia dai dati ricevuti da nttcp (Real s), sia dal grafico, si può notare come UDP ci sia stato circa 9.85 sec, TCP 21.65 sec.
+udp quindi avrà praticamente quasi tutta la rete disponibile per la durata della connessione, lo si può vedere da Real-Mbit, si comporta quindi come un caso a_udp ridotto (forse meglio togliere questa considerazione)
+tcp invece sarà quasi a 0 Mbit per il tempo in cui sarà attivo UDP (per 9.8 sec), nei restanti 12 sec invece avrà tutta la banda da 9.41 ipotizzata nel caso a_tcp.
+Facendo un semplice integrale (o verificando dal grafico attraverso wireshark), il tempo per cui la banda restà a quasi 10Mbit è maggiore del tempo in cui sta quasi a 0Mbit,
+ne consegue un Real-Mbit/s in linea, cioè maggiore della metà del goodput ipotizzato nel caso tcp,fd 

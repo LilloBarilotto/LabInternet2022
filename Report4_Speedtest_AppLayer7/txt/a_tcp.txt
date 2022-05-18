@@ -1,0 +1,40 @@
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::ce32:e5ff:fe0a:8df7  prefixlen 64  scopeid 0x20<link>
+        ether cc:32:e5:0a:8d:f7  txqueuelen 1000  (Ethernet)
+        RX packets 35  bytes 2634 (2.6 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 86  bytes 9108 (9.1 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+nttcp -T -n 100000 -l 1460 172.16.1.1
+
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l146000000  123.82    0.52      9.4333   2258.6066  100000    807.64  193373.9
+1146000000  124.07   11.52      9.4142    101.3540  100830    812.70    8749.6
+
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::ce32:e5ff:fe0a:8df7  prefixlen 64  scopeid 0x20<link>
+        ether cc:32:e5:0a:8d:f7  txqueuelen 1000  (Ethernet)
+        RX packets 50483  bytes 2625998 (2.6 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 100933  bytes 149640803 (149.6 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+#COSE DA CONTROLLARE
+C'è una differenza di 830 calls? Why? Posso capire 3 volte nell'udp a causa del pacchetto lenght 4 ripetuto alla fine per finire la connessione ma qui con tcp non ha senso
+ 
+#RISULTATI DA INSERIRE
+Goodput		= 9.4142 Mbps
+BytesLost	= 146000000 - 146000000	= 0
+Collisions	= 0
+eff_prev 	= (1460-12)/1538 	= 0.94148
+Mbps_prev	= 9.4148
+err%		= 100(1-9.4142/9.4148)	= 0.0064%
+
+#COMMENTO
+Allora, inizialmente è stato ipotizzato che eff (n)= 1460/1538=0,95
+In realtà, la reale efficienza deve tenere conto dei byte Opzioni che vengono aggiunti al layer 4 TCP (12 byte di opzioni), l'efficienza diminuisce --> eff(n)=1448/1538=0.94148
+Confrontando i risultati ottenuti con quelli previsti, c'è un errore del 0,0064%, il che è abbastanza apprezzabile

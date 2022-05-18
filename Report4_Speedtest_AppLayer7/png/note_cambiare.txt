@@ -1,0 +1,33 @@
+e_udp_udp_2
+ >> cambiare H1(TCP) in H1(UDP)
+
+f_udp_udp_half_2_1
+    notiamo sempre che a 7 secondi c'è un problema boia, abbiamo scoperto che il problema è la mia scheda di rete
+    In pratica abbiamo fatto 3 cattura, da server che sta in half, e da noi due client che stiamo inviando i dati.
+    Noi trasmettiamo sempre a 10Mbps, lo switch ci separa facendo 5mbps e 5mbps a testa, e questo lo vediamo dagli screen su le 3 macchine.
+    Da notare che su f_udp_udp_half_2_1 a 7 secondi circa, la mia scheda va a puttane, lo si può vedere dal .png
+    >>>carriers 5, vedere link telegram e fare le considerazioni su carriers
+
+
+t_tcp_udp_half_H1tcp_H3udp_H2halfserver
+    Si nota un 
+
+t_tcp_udp_half_H1tcphalf_H3udp_H2half
+    
+
+g_tcp_tcp
+
+
+g_tcp_udp
+    abbiamo notato che si dividono equamente la rete. Per quanto inizialmente uno possa ipotizzare che ci sia una banda dedicata maggiore ad UDP perchè TCP si adatta facendo controllo di congestione sulla rete
+    in realtà non c'è nessun controllo di congestione, perche il flusso proviene tutto dalla stessa macchina 172.16.1.2, ciò vuol dire che il kernel ha dei setting per dividere equamente la banda e le risorse in questo caso la scheda di rete, tra le varie applicazioni che fanno richiesta.
+    Quindi nttcpversoH1 e nttcpversoH2 che siano udp o tcp avranno la stessa priorità e quindi la scheda ethernet invierà equamente un numero di pacchetti consecutivi per entrambi
+
+h_tcp_tcp_half_castH2
+    qui si prevede un casino, perchè lui è un tx che invia 2 tcp in half a 2 rx.
+    Nel suo canale ci saranno possibili collisioni perche:
+        - h2 invia su canale e nel frattempo switch invia ack di H1 o H3
+    come previsto, 500 collisioni cirica
+
+
+h_tcp_udp_half_castcheinviaa2

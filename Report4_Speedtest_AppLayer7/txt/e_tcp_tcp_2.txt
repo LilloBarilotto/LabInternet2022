@@ -1,0 +1,47 @@
+eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::a21d:48ff:fedc:b069  prefixlen 64  scopeid 0x20<link>
+        ether a0:1d:48:dc:b0:69  txqueuelen 1000  (Ethernet)
+        RX packets 412783  bytes 474962753 (474.9 MB)
+        RX errors 0  dropped 2  overruns 0  frame 0
+        TX packets 418631  bytes 388965941 (388.9 MB)
+        TX errors 1  dropped 0 overruns 0  carrier 0  collisions 1999
+
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l 73000000  122.48    6.23      4.7683     93.7031   50408    411.57    8088.0
+1 73000000  119.56    0.18      4.8845   3307.7886   50000    418.19  283201.1
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l 73000000  124.07    6.09      4.7072     95.8989   50414    406.35    8278.5
+1 73000000  122.88    0.20      4.7527   2906.9767   50000    406.91  248885.0
+eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::a21d:48ff:fedc:b069  prefixlen 64  scopeid 0x20<link>
+        ether a0:1d:48:dc:b0:69  txqueuelen 1000  (Ethernet)
+        RX packets 513643  bytes 627619655 (627.6 MB)
+        RX errors 0  dropped 2  overruns 0  frame 0
+        TX packets 474489  bytes 392884703 (392.8 MB)
+        TX errors 1  dropped 0 overruns 0  carrier 0  collisions 1999
+
+non ci sono collisioni come atteso i pacchetti sono stati trasmessi nella loro 
+interezza, si sono divisi la rete come aspettato
+
+#RISULTATI DA INSERIRE
+Goodput_H1	= 4.7683 Mbps
+Goodput_H2      = 4.7072 Mbps
+Goodput_Tot     = 9.4755 Mbps
+BytesLost	= 146000000 - 146000000	= 0
+Collisions	= 0
+eff_prev 	= (1460-12)/1538 	= 0.94148
+Mbps_Hi_prev    = 4.7074
+Mbps_prev	= 9.4148
+err%		= |100(1-9.4755/9.4148)|= 0.0064%
+
+#COMMENTO LILLO
+La somma dei Goodput supera il goodput previsto. Ciò non è un problema, i due terminali H1 e H3 si dividono la rete.
+Grazie al comando inoltrato con '&' la differenza nel tempo di avvio dei due applicativi sui terminali è nell'ordine dei ns.
+Vedendo "e_tcp_tcp_2.png", si può vedere come ci sia una suddivisione praticamente speculare della banda, che però non sono sovrapposte.
+Essendo due linee non perfettamente sovrapposte, significa che non si stanno dividendo equamente la banda,ed avendo quindi una delle due connessioni una banda maggiore a disposizione in un intervallo di tempo,
+è possibile per le connessioni finire in tempi differenti. Quando una connessione finisce prima dell'altra, lascia praticamente la banda libera, ciò vuol dire
+che la connessione ancora aperta avrà a disposizione l'intera banda, di conseguenza il suo goodput potrebbe essere maggiore.
+Si può verificare anche attraverso la differenza di "Real s", 122 vs 124 secondi.
+Ciò spiega un goodput totale effettivo maggiore di quello stimato. Riprendere problema del goodput effettivo con il caso estremo e_tcp_udp

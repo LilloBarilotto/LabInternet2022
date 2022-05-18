@@ -1,0 +1,37 @@
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::ce32:e5ff:fe0a:8df7  prefixlen 64  scopeid 0x20<link>
+        ether cc:32:e5:0a:8d:f7  txqueuelen 1000  (Ethernet)
+        RX packets 50513  bytes 2627692 (2.6 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 141408  bytes 210858449 (210.8 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+nttcp -T -u -n 10000 -l 1472 172.16.1.1
+
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l 14720000    9.40    0.14     12.5336    853.2406   10003   1064.65   72477.6
+1 11388864    9.52    0.87      9.5678    105.3294    7738    812.59    8945.6
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::ce32:e5ff:fe0a:8df7  prefixlen 64  scopeid 0x20<link>
+        ether cc:32:e5:0a:8d:f7  txqueuelen 1000  (Ethernet)
+        RX packets 50524  bytes 2628364 (2.6 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 149158  bytes 222573090 (222.5 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+#RISULTATI DA INSERIRE
+Goodput		= 9.5678 Mbps
+BytesLost	= 14720000 - 11388864	= 3331136
+Collisions	= 0
+eff_prev 	= (1472)/1538 		= 0.95709
+Mbps_prev	= 9.5709
+err%		= 100(1-9.5678/9.5709)	= 0.0324%
+packetLost	= BytesLost/1472	= 2263
+packetLost%	= 22.63%
+
+
+#COMMENTO 
+Abbiamo perso il 22.63% dei pacchetti, meglio rispetto a prima, sicuramente il risultato migliore è da attribuire a 
+un numero di pacchetti minore che si trova ad essere scartato nella pila protocollare quando i pacchetti arrivano alla NIC.

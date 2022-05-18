@@ -1,0 +1,25 @@
+eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::a21d:48ff:fedc:b069  prefixlen 64  scopeid 0x20<link>
+        ether a0:1d:48:dc:b0:69  txqueuelen 1000  (Ethernet)
+        RX packets 609496  bytes 772498597 (772.4 MB)
+        RX errors 0  dropped 2  overruns 0  frame 0
+        TX packets 479727  bytes 393233418 (393.2 MB)
+        TX errors 1  dropped 0 overruns 0  carrier 0  collisions 1999
+
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l 29200000   45.71    2.15      5.1109    108.4052   20168    441.25    9359.2
+1 29200000   43.71    0.07      5.3445   3320.6818   20000    457.57  284304.9
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l 29200000   49.63    2.09      4.7071    111.7954   20167    406.37    9651.4
+1 29200000   48.64    0.08      4.8031   2778.6038   20000    411.22  237894.2
+eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::a21d:48ff:fedc:b069  prefixlen 64  scopeid 0x20<link>
+        ether a0:1d:48:dc:b0:69  txqueuelen 1000  (Ethernet)
+        RX packets 649855  bytes 833562451 (833.5 MB)
+        RX errors 0  dropped 2  overruns 0  frame 0
+        TX packets 501816  bytes 394760666 (394.7 MB)
+        TX errors 1  dropped 0 overruns 0  carrier 0  collisions 1999
+
+QUI TX è in half

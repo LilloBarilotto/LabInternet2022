@@ -1,0 +1,40 @@
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::ce32:e5ff:fe0a:8df7  prefixlen 64  scopeid 0x20<link>
+        ether cc:32:e5:0a:8d:f7  txqueuelen 1000  (Ethernet)
+        RX packets 50494  bytes 2626578 (2.6 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 100953  bytes 149643723 (149.6 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+nttcp -T -u -n 100000 -l 1472 172.16.1.1 
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l147200000   49.62    1.24     23.7337    946.3317  100003   2015.49   80363.5
+1 59514432   49.75    4.10      9.5699    116.1069   40432    812.68    9859.9
+
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::ce32:e5ff:fe0a:8df7  prefixlen 64  scopeid 0x20<link>
+        ether cc:32:e5:0a:8d:f7  txqueuelen 1000  (Ethernet)
+        RX packets 50508  bytes 2627388 (2.6 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 141403  bytes 210857845 (210.8 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+#RISULTATI DA INSERIRE
+Goodput		= 9.5699 Mbps
+BytesLost	= 1147200000 - 59514432	= 87685568
+Collisions	= 0
+eff_prev 	= (1472)/1538 	= 0.95709
+Mbps_prev	= 9.5709
+err%		= 100(1-9.5699/9.5709)	= 0.0104%
+packetLost	= 100000-40432		= 59568
+packetLost%	= 100(1- 40432/100000)	= 59.57%
+
+#COMMENTO
+Abbiamo perso un pozzo di pacchetti, circa il 60% sono stati persi, il MBit è uscito buono.
+Riprovare con meno pacchetti.
+Il numero di chiamate fa vedere come si siano persi nella pila protocollare circa 100000-40432=59568 pacchetti, difatto non essendoci collisioni (come previsto) e non essendoci TX errors (=0) i pacchetti sono stati persi perchè 100000 pacchetti generati sono un numero troppo elevato per la gestione del buffer della scheda, lo si può vedere anche controllando il .png caricato con i numero di pacchetti che variano.
+Come capire il numero adatto di pacchetti da generare? Idk
+Come capire il numero massimo di pacchetti che la NIC può gestire? Idk, forse si può vedere dai driver, aggiornerò questo commento quando avrò una soluzione.
+Questi casi A, essendo tutti in FullDuplex, non soffriranno mai dei problemi di collisione, quindi non dobbiamo preoccuparci che la NIC esterna della tp-link faccia o meno dei conteggi.

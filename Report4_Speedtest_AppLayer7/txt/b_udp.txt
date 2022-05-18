@@ -1,0 +1,52 @@
+eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::a21d:48ff:fedc:b069  prefixlen 64  scopeid 0x20<link>
+        ether a0:1d:48:dc:b0:69  txqueuelen 1000  (Ethernet)
+        RX packets 103406  bytes 6872877 (6.8 MB)
+        RX errors 0  dropped 1  overruns 0  frame 0
+        TX packets 241594  bytes 365546780 (365.5 MB)
+        TX errors 1  dropped 0 overruns 0  carrier 0  collisions 1997
+
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l 14720000    9.44    0.11     12.4787   1091.2899   10003   1059.99   92698.5
+1 11359424    9.50    0.64      9.5671    142.5675    7718    812.53   12108.2
+
+eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::a21d:48ff:fedc:b069  prefixlen 64  scopeid 0x20<link>
+        ether a0:1d:48:dc:b0:69  txqueuelen 1000  (Ethernet)
+        RX packets 103416  bytes 6873643 (6.8 MB)
+        RX errors 0  dropped 1  overruns 0  frame 0
+        TX packets 249324  bytes 377231141 (377.2 MB)
+        TX errors 1  dropped 0 overruns 0  carrier 0  collisions 1999
+
+verificando con wireshar non è possibilie vedere quali pacchetti non sono stati 
+trasmessi in quanto la perdita avviene per causa del riempimento del buffer della 
+scheda di rete, dunque non vengono trasmessi e catturati dal nostro tool.
+
+Nttcp non mette nel payload dei pacchetti udp un numero di seq. per identificare 
+i pacchetti, pertanto non è possibile identificare/ipotizzare la dimensione del buffer
+
+Le 2 collisioni che sono riportate non sono imputabili a  nttcp bensì alla presenza
+di altre comunicazioni slegate da questo (es. arp, icmp).
+
+
+#RISULTATI DA INSERIRE
+Goodput		= 9.5671 Mbps
+BytesLostLayer7	= 14720000 - 11359424	= 3360576
+Collisions	= 2
+eff_prev 	= (1472)/1538 		= 0.95709
+Mbps_prev	= 9.5709
+err%		= 100(1-9.5671/9.5709)	= 0.0397%
+packetLost	= BytesLost/1472	= 1485
+packetLost%	= 14.85%
+
+
+#COMMENTO LILLO
+Possiamo essere sicuri che le due collisioni rilevate non siano a causa dei pacchetti udp inoltrati da nttcp? Abbastanza, se prima con tcp
+le collisioni erano derivanti dall'elevato numero di pacchetti inoltrati dal trasmettitore e dal numero elevato dei corrispondenti ack in ritorno,
+qui abbiamo solo un tot di pacchetti udp che vengono inoltrati sulla rete, non dovrebbe esserci una risposta che crei collisione.
+La collisione di 2 quindi può venire a causa di:
+-nttcp nel caso di apertura connessione e chiusura connessione di controllo
+-nttcp nel caso si provino ad inviare i 3 pacchetti finali di lenght 4 e contemporaneamente ci arrivi una risposta di un ICMP Destination Port Unreachable sullo stesso cavo in HD(vedi per esempio i .pcap dove ci sono i pacchetti finali con lenght=4)
+-come ipotizzato inizialmente altri pacchetti per la stradina come arp, icmp, mdns, etc.

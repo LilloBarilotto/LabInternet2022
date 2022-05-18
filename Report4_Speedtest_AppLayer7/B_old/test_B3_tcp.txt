@@ -1,0 +1,21 @@
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::ce32:e5ff:fe0a:8df7  prefixlen 64  scopeid 0x20<link>
+        ether cc:32:e5:0a:8d:f7  txqueuelen 1000  (Ethernet)
+        RX packets 124384  bytes 6472084 (6.4 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 303286  bytes 448524779 (448.5 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l 29200000   24.12    0.09      9.6849   2729.4821   20000    829.19  233688.5
+1 29200000   26.28    2.32      8.8885    100.6864   20168    767.39    8692.8
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::ce32:e5ff:fe0a:8df7  prefixlen 64  scopeid 0x20<link>
+        ether cc:32:e5:0a:8d:f7  txqueuelen 1000  (Ethernet)
+        RX packets 134586  bytes 7002692 (7.0 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 323464  bytes 478106663 (478.1 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+

@@ -1,0 +1,28 @@
+eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::a21d:48ff:fedc:b069  prefixlen 64  scopeid 0x20<link>
+        ether a0:1d:48:dc:b0:69  txqueuelen 1000  (Ethernet)
+        RX packets 574597  bytes 719701877 (719.7 MB)
+        RX errors 0  dropped 2  overruns 0  frame 0
+        TX packets 479706  bytes 393232032 (393.2 MB)
+        TX errors 1  dropped 0 overruns 0  carrier 0  collisions 1999
+
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l 25686400   44.51    2.16      4.6172     95.0554   17451    392.11    8072.4
+1117760000   42.50    0.99     22.1643    947.8944   80003   1882.23   80496.8
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l 25643712   44.54    2.01      4.6055    102.0728   17422    391.12    8668.4
+1117760000   42.54    0.51     22.1444   1841.4854   80003   1880.54  156382.0
+eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::a21d:48ff:fedc:b069  prefixlen 64  scopeid 0x20<link>
+        ether a0:1d:48:dc:b0:69  txqueuelen 1000  (Ethernet)
+        RX packets 609488  bytes 772498017 (772.4 MB)
+        RX errors 0  dropped 2  overruns 0  frame 0
+        TX packets 479726  bytes 393233376 (393.2 MB)
+        TX errors 1  dropped 0 overruns 0  carrier 0  collisions 1999
+
+
+#COMMENTO LILLO
+Entrambe le connessioni UDP non fanno controllo di flusso. In questo caso si nota come si dividano quasi perfettamente la connessione, GG.
+Nella pila protocollare si perdono circa il 78% dei pacchetti in entrambe le connessioni.

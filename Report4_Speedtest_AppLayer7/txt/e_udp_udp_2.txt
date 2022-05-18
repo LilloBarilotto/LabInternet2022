@@ -1,0 +1,44 @@
+eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::a21d:48ff:fedc:b069  prefixlen 64  scopeid 0x20<link>
+        ether a0:1d:48:dc:b0:69  txqueuelen 1000  (Ethernet)
+        RX packets 548304  bytes 680004041 (680.0 MB)
+        RX errors 0  dropped 2  overruns 0  frame 0
+        TX packets 479633  bytes 393227166 (393.2 MB)
+        TX errors 1  dropped 0 overruns 0  carrier 0  collisions 1999
+
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l  6662272    9.85    0.46      5.4116    115.2453    4527    459.65    9788.6
+1 14720000    9.46    0.08     12.4469   1513.6247   10003   1057.29  128573.3
+
+     Bytes  Real s   CPU s Real-MBit/s  CPU-MBit/s   Calls  Real-C/s   CPU-C/s
+l  7351168   11.71    0.55      5.0203    106.2607    4995    426.40    9025.3
+1 14720000   11.53    0.14     10.2125    866.7619   10003    867.49   73626.2
+eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.16.1.2  netmask 255.255.255.0  broadcast 172.16.1.255
+        inet6 fe80::a21d:48ff:fedc:b069  prefixlen 64  scopeid 0x20<link>
+        ether a0:1d:48:dc:b0:69  txqueuelen 1000  (Ethernet)
+        RX packets 557848  bytes 694419007 (694.4 MB)
+        RX errors 0  dropped 2  overruns 0  frame 0
+        TX packets 479657  bytes 393228934 (393.2 MB)
+        TX errors 1  dropped 0 overruns 0  carrier 0  collisions 1999
+
+#RISULTATI DA INSERIRE
+Goodput_H1_udp	= 5.4116 Mbps
+Goodput_H2_udp  = 5.0203 Mbps
+Goodput_Tot     = 10.4319 Mbps
+BytesLost_H1udp = 14720000 - 7351168	= 7368832
+BytesLost_H2udo = 14720000 - 6662272    = 8057728
+Collisions	= 0 (Come previsto obv)
+eff_prev_Hi 	= (1472/1538)*1/2 = 0,47854
+Mbps_Hi_prev    = 4,7854
+err%H1		= |100*(1- 5.4116/4,7854)| = 0.1308%
+err%H2         = |100*(1- 5.0203/4,7854)| = 0.0491%
+err%=max(err%H1,err%H2)  =    0.1308%
+
+Questo caso, insieme a "udp_udp_more..." ci mostrano quello che il prof ci ha detto a lezione (o per meglio dire al gruppo nel mentre della lezione, coff coff audio telegram)
+Per qualche fenomeno non controllabile da noi direttamente sulle macchine (si presume quindi una gestione a noi sconosciuta delle porte dello switch) ci son diversi problemi:
+-maybe temporizzazione, in coda arrivano sempre pacchetto udp_1, udp_2, udp_1, udp_2, sempre in questa sequenza dopo un determinato tempo quindi si sincronizza lo switch il quale
+     MAGARI prende il primo pacchetto (ipotizziamo sempre udp1) e scarta il secondo (udp2). Con questa motivazione si potrebbero spiegare i picchi che ci sono nei casi udp, la temporizzazione non dura per sempre
+     e quindi dopo un tot magari la connessione udp2 riesce a inoltrare i suoi pacchetti che si ritrovano nel momento adatto con la sincronizzazione dello switch
+-abbiamo notato che a 7sec c'è nu burdell, ricontrollare
