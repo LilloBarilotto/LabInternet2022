@@ -1,0 +1,8 @@
+PAGINA DI INTERESSE
+https://www.tiktok.com/messages?lang=en
+
+display filter:     !mdns and !nbns and !db-lsp-disc and ip and ip.addr!=172.18.143.255 and tcp.flags.syn==1 && tcp.flags.ack==0
+#SYN = #ConnessioniAperte = 20
+
+Vedere syn.pcapng per gli ip
+

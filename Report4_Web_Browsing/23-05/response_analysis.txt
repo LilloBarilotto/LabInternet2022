@@ -1,0 +1,6 @@
+6   DA FIREFOX
+    a. 9 dati ricevuti attraverso metodo GET, vedi screenshot. Stranamente viene fatta due volte la richiesta GET per il .css
+        sono un figlio di botta
+    b. HTTP 1.1
+    c. no, solo 2 oggetti, non so come funziona firefox e nemmeno come funziona la mia vita
+    d. no, prima mi fa 9 richieste GET perhè stupido, adesso ne fa 8 perchè ha già in cache il .css

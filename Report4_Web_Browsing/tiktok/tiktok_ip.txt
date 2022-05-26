@@ -1,0 +1,45 @@
+Applicazione Scelta: Tiktok
+DNS Answers
+    www.tiktok.com: type CNAME, class IN, cname www.tiktok.com.edgesuite.net
+    www.tiktok.com.edgesuite.net: type CNAME, class IN, cname a2047.r.akamai.net
+    a2047.r.akamai.net: type A, class IN, addr 213.254.13.8
+    a2047.r.akamai.net: type A, class IN, addr 213.254.13.16
+    a2047.r.akamai.net: type A, class IN, addr 213.254.13.11
+    a2047.r.akamai.net: type A, class IN, addr 213.254.13.17
+    a2047.r.akamai.net: type A, class IN, addr 213.254.13.18
+    a2047.r.akamai.net: type A, class IN, addr 213.254.13.41
+    a2047.r.akamai.net: type A, class IN, addr 213.254.13.9
+    a2047.r.akamai.net: type A, class IN, addr 213.254.13.35
+    a2047.r.akamai.net: type A, class IN, addr 213.254.13.40
+    
+Azienda fornitrice per Tiktok --> akamai (novità 2022)
+Ip Contattato:		213.254.13.8
+
+
+DISPLAY FILTER:	ip and ip.addr==172.18.132.158 and !(bmc.broadcast_address)
+
+LOOKUP DIRETTO
+host www.tiktok.com
+
+www.tiktok.com is an alias for www.tiktok.com.edgesuite.net.
+www.tiktok.com.edgesuite.net is an alias for a2047.r.akamai.net.
+a2047.r.akamai.net has address 213.254.13.40
+a2047.r.akamai.net has address 213.254.13.32
+a2047.r.akamai.net has address 213.254.13.19
+a2047.r.akamai.net has address 213.254.13.27
+a2047.r.akamai.net has address 213.254.13.33
+a2047.r.akamai.net has address 213.254.13.34
+a2047.r.akamai.net has address 213.254.13.35
+a2047.r.akamai.net has address 213.254.13.26
+a2047.r.akamai.net has address 213.254.13.24
+
+REVERSE-LOOKUP
+40.13.254.213.in-addr.arpa domain name pointer a213-254-13-40.deploy.akamaitechnologies.com.
+32.13.254.213.in-addr.arpa domain name pointer a213-254-13-32.deploy.akamaitechnologies.com.
+19.13.254.213.in-addr.arpa domain name pointer a213-254-13-19.deploy.akamaitechnologies.com.
+27.13.254.213.in-addr.arpa domain name pointer a213-254-13-27.deploy.akamaitechnologies.com.
+33.13.254.213.in-addr.arpa domain name pointer a213-254-13-33.deploy.akamaitechnologies.com.
+34.13.254.213.in-addr.arpa domain name pointer a213-254-13-34.deploy.akamaitechnologies.com.
+35.13.254.213.in-addr.arpa domain name pointer a213-254-13-35.deploy.akamaitechnologies.com.
+26.13.254.213.in-addr.arpa domain name pointer a213-254-13-26.deploy.akamaitechnologies.com.
+24.13.254.213.in-addr.arpa domain name pointer a213-254-13-24.deploy.akamaitechnologies.com.
