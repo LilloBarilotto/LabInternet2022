@@ -43,3 +43,10 @@ REVERSE-LOOKUP
 35.13.254.213.in-addr.arpa domain name pointer a213-254-13-35.deploy.akamaitechnologies.com.
 26.13.254.213.in-addr.arpa domain name pointer a213-254-13-26.deploy.akamaitechnologies.com.
 24.13.254.213.in-addr.arpa domain name pointer a213-254-13-24.deploy.akamaitechnologies.com.
+
+
+PAGINA DI INTERESSE
+https://www.tiktok.com/messages?lang=en
+
+display filter:     !mdns and !nbns and !db-lsp-disc and ip and ip.addr!=172.18.143.255 and tcp.flags.syn==1 && tcp.flags.ack==0
+#SYN = #ConnessioniAperte = 20

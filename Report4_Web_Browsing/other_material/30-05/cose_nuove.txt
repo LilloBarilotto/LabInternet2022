@@ -1,0 +1,16 @@
+Protocolli da controllare:
+
+    RTP, Real Time Transport Protocol, vedi se se può fa una diretta su Tiktok e prova a vedere se utilizza questo protocollo   https://it.wikipedia.org/wiki/Real-time_Transport_Protocol
+    RTMP,Real Time Messaging Protocol, mannagg a tiktok si possono fare live solo su determinate condizioni
+        https://zpmirov.ru/%D0%BA%D0%B0%D0%BA-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D1%82%D0%B8%D1%82%D1%8C-%D0%BF%D1%80%D1%8F%D0%BC%D0%BE%D0%B9-%D1%8D%D1%84%D0%B8%D1%80-%D0%B2-%D1%82%D0%B8%D0%BA-%D1%82%D0%BE%D0%BA%D0%B5/
+        https://www.quora.com/Is-there-a-way-to-live-stream-to-TikTok-through-an-RTMP
+    RTC, https://careers.tiktok.com/position/7041733390920304904/detail
+    QUIC, vedi l'header e i link che hai salvato su Mozilla/LabInternet, QUIC fotte il monolitich kernel e fotte TCP salvato li, in pratica è un servizio aggiuntivo e fa come una specie di mischione microkernel
+
+Siti da attenzionare:
+    iplocation.net
+    whois
+    maxmind
+
+
+traceroute --resolve-hostnames [IP_ADDRESS]
